@@ -1,0 +1,21 @@
+﻿@model ProASP.Models.GuestResponse
+
+@{
+    Layout = "~/Views/Shared/_fullLayout.cshtml";
+}
+<h2>RegisterForm</h2>
+@using (Html.BeginForm())
+{
+    <p>Name: @Html.TextBoxFor(x => x.Name)</p>
+    <p>Email: @Html.TextBoxFor(x => x.Email)</p>
+    <p>Phone: @Html.TextBoxFor(x => x.Phone)</p>
+    <p>
+        Will Attend? @Html.DropDownListFor(x => x.WillAttend,
+        new[]{
+            new SelectListItem(){Text = "yes,I'll be there", Value = bool.TrueString},
+            new SelectListItem(){Text = "No", Value = bool.FalseString}
+        },
+        "Choose an option")
+    </p>
+    <input type="submit" value="Submit to register" />
+}

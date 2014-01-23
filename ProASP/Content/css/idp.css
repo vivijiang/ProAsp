@@ -1,0 +1,12 @@
+﻿[class^="idp-act-"],
+[class*=" idp-act-"] {
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    position: relative;
+}
+.idp-act-1-1 {
+    position: absolute;
+    top: 0;
+    left: 100px;
+}

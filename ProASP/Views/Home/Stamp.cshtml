@@ -1,0 +1,32 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_fullLayout.cshtml";
+}
+
+<h2>title</h2>
+<div class="row-fluid">
+    <div class="span12" id="idpko">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Core Course</th>
+                    <th colspan="5">TB 5</th>
+                    <th colspan="5">TB 6</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: planDetail">
+                <tr>
+                    <td data-bind="text: coursesCol.courseName"></td>
+                    <!-- ko foreach: courses -->
+                    <td>
+                        <div data-bind="css: idpcss"><img src="/Content/bootstrap/img/glyphicons-halflings.png"/></div>
+                    </td>
+                    <!-- /ko -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
