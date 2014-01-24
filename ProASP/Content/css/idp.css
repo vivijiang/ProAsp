@@ -1,15 +1,10 @@
-﻿.idp.edit .active td {
-    background-color: #0088cc;
-    color: #fff;
-}
-
-.idp img {
-    max-width: 469px;
+﻿.idp img {
+    max-width: none;
 }
 
 .stamp {
-    width: 14px;
-    height: 14px;
+    width: 44px;
+    height: 44px;
     overflow: hidden;
     position: relative;
 }
@@ -18,35 +13,28 @@
         position: absolute;
     }
 
-.active td:hover .stamp {
-    border: 1px solid #fff;
-}
-
 .idp-detail .stamp img {
     display: none;
 }
 
 .idp-detail [class^="act-"] img,
-.idp-detail [class*=" act-"] img{
+.idp-detail [class*=" act-"] img {
     display: inline-block;
+    top: 0;
 }
 
 .act-1-1 img {
-    top: 0;
     left: 0;
 }
 
 .act-1-2 img {
-    top: 0;
-    left: -25px;
+    left: -65px;
 }
 
 .act-2-2 img {
-    top: -25px;
-    left: 0;
+    left: -130px;
 }
 
 .act-2-3 img {
-    top: -25px;
-    left: -25px;
+    left: -195px;
 }

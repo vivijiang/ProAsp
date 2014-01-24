@@ -7,18 +7,7 @@
 
 <h2>IDP demo</h2>
 <div class="row-fluid">
-    <div class="span12 idp" id="idpko"  data-bind="css: { edit: activeCourse() }">
-        <div>
-            <table class="table table-bordered">
-                <tr data-bind="foreach: legend">
-                    <td>
-                        <div class="stamp" data-bind="css: idpcss, click: $parent.clickLegend">
-                            <img src="/Content/bootstrap/img/glyphicons-halflings.png" />
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <div class="span12 idp" id="idpko">
         <table class="table table-bordered table-striped idp-detail">
             <thead>
                 <tr>
@@ -30,12 +19,12 @@
             </thead>
             <tbody data-bind="foreach: planDetail">
 
-                <tr data-bind="css: { active: $root.activeCourse() && (coursesCol.courseId == $root.activeCourse().courseId) }">
+                <tr>
                     <td data-bind="text: coursesCol.courseName"></td>
                     <!-- ko foreach: courses -->
                     <td>
-                        <div class="stamp" data-bind="css: idpcss, click: function (data) { $root.stamp(data, $root.activeCourse()); }">
-                            <img src="/Content/bootstrap/img/glyphicons-halflings.png" />
+                        <div class="stamp" data-bind="css: idpcss, click: $root.clickCell">
+                            <img src="/Content/img/idp.png" />
                         </div>
                     </td>
                     <!-- /ko -->

@@ -130,39 +130,12 @@
         }]);
     var _planFooter = ko.observableArray(timestamps);
 
-    var _legend = [
-        new idpcourse({
-            courseId: "1",
-            activitytype: "1",
-        }),
-      new idpcourse({
-          courseId: "1",
-          activitytype: "2",
-      }),
-          new idpcourse({
-              courseId: "2",
-              activitytype: "2",
-          }),
-          new idpcourse({
-              courseId: "2",
-              activitytype: "3",
-          })];
-
     function idp(parameters) {
         var self = this;
-        self.legend = _legend;
-        self.activeCourse = ko.observable();
         self.planDetail = _planDetail;
         self.planFooter = _planFooter;
-        self.clickLegend = function (data) {
-            console.log('click');
-            //1. set current context to selected course
-            self.activeCourse(data);
-        };
-        self.stamp = function (data, activeCourse) {
-            if (!!activeCourse && (data.courseId == activeCourse.courseId)) {
-                data.activitytype(activeCourse.activitytype());
-            }
+        self.clickCell = function (data) {
+            console.log('click cell');
         };
     }
     return idp;
