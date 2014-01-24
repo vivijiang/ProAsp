@@ -55,7 +55,7 @@
     }];
 
 
-    function getIdpCourseViewModel(timestamps, _idpCourses1) {
+    function getIdpCourseViewModel(timestamps, _idpCourses1, courseId) {
         var idpCourse1View = [];
         var index = timestamps.length;
         var len = index;
@@ -67,7 +67,8 @@
                 _idpCourses1.shift();
             } else {
                 idpCourse1View.push(new idpcourse({
-                    monthId: currenttimestamp.monthId
+                    monthId: currenttimestamp.monthId,
+                    courseId: courseId
                 }));
             }
         }
@@ -91,7 +92,7 @@
 
     ];
 
-    var _idpCourse1View = getIdpCourseViewModel(timestamps, _idpCourses1);
+    var _idpCourse1View = getIdpCourseViewModel(timestamps, _idpCourses1, 1);
 
 
     var _idpCourses2 = [
@@ -110,7 +111,7 @@
 
     ];
 
-    var _idpCourses2View = getIdpCourseViewModel(timestamps, _idpCourses2);
+    var _idpCourses2View = getIdpCourseViewModel(timestamps, _idpCourses2, 2);
 
 
     var _planDetail = ko.observableArray(
@@ -146,12 +147,24 @@
               courseId: "2",
               activitytype: "3",
           })];
-    var plan = {
-        legend: _legend,
-        planDetail: _planDetail,
-        planFooter: _planFooter
-    };
-    test = plan;
-    return plan;
+
+    function idp(parameters) {
+        var self = this;
+        self.legend = _legend;
+        self.activeCourse = ko.observable();
+        self.planDetail = _planDetail;
+        self.planFooter = _planFooter;
+        self.clickLegend = function (data) {
+            console.log('click');
+            //1. set current context to selected course
+            self.activeCourse(data);
+        };
+        self.stamp = function (data, activeCourse) {
+            if (!!activeCourse && (data.courseId == activeCourse.courseId)) {
+                data.activitytype(activeCourse.activitytype());
+            }
+        };
+    }
+    return idp;
 
 });

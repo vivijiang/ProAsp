@@ -1,27 +1,42 @@
-﻿
-.idp img {
-    max-width: 469px;
-    display: none;
+﻿.idp.edit .active td {
+    background-color: #0088cc;
+    color: #fff;
 }
 
-.idp [class^="act-"],
-.idp [class*="act-"] {
+.idp img {
+    max-width: 469px;
+}
+
+.stamp {
     width: 14px;
     height: 14px;
     overflow: hidden;
     position: relative;
 }
-.idp [class^="act-"] img,
-.idp [class*="act-"] img {
-    display: inline-block;
-    position: absolute;
+
+    .stamp img {
+        position: absolute;
+    }
+
+.active td:hover .stamp {
+    border: 1px solid #fff;
 }
+
+.idp-detail .stamp img {
+    display: none;
+}
+
+.idp-detail [class^="act-"] img,
+.idp-detail [class*=" act-"] img{
+    display: inline-block;
+}
+
 .act-1-1 img {
     top: 0;
     left: 0;
 }
 
-.act-1-2  img {
+.act-1-2 img {
     top: 0;
     left: -25px;
 }

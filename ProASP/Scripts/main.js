@@ -5,5 +5,6 @@
 });
 require(["jquery", "knockout-2.3.0", "App/idp"], function ($, ko, idp) {
     console.log('framework loaded.');
-    ko.applyBindings(idp, $("#idpko")[0]);
+    var odinIdp = new idp();
+    ko.applyBindings(odinIdp, $("#idpko")[0]);
 });
