@@ -5,9 +5,20 @@
     Layout = "~/Views/Shared/_fullLayout.cshtml";
 }
 
-<h2>title</h2>
+<h2>IDP demo</h2>
 <div class="row-fluid">
-    <div class="span12" id="idpko">
+    <div class="span12 idp" id="idpko">
+        <div>
+            <table class="table-bordered">
+                <tr data-bind="foreach: legend">
+                    <td>
+                        <div data-bind="css:idpcss">
+                            <img src="/Content/bootstrap/img/glyphicons-halflings.png" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -22,11 +33,21 @@
                     <td data-bind="text: coursesCol.courseName"></td>
                     <!-- ko foreach: courses -->
                     <td>
-                        <div data-bind="css: idpcss"><img src="/Content/bootstrap/img/glyphicons-halflings.png"/></div>
+                        <div data-bind="css: idpcss">
+                            <img src="/Content/bootstrap/img/glyphicons-halflings.png" />
+                        </div>
                     </td>
                     <!-- /ko -->
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <!-- ko foreach: planFooter -->
+                    <td><span data-bind="text: monthText"></span></td>
+                    <!-- /ko -->
+                </tr>
+            </tfoot>
         </table>
     </div>
 </div>

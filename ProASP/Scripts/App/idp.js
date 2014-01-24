@@ -78,7 +78,7 @@
         new idpcourse({
             monthId: '9',
             courseId: "1",
-            activitytype:"1",
+            activitytype: "1",
             description: 'blabla'
 
         }),
@@ -109,7 +109,7 @@
     })
 
     ];
-    
+
     var _idpCourses2View = getIdpCourseViewModel(timestamps, _idpCourses2);
 
 
@@ -129,7 +129,25 @@
         }]);
     var _planFooter = ko.observableArray(timestamps);
 
+    var _legend = [
+        new idpcourse({
+            courseId: "1",
+            activitytype: "1",
+        }),
+      new idpcourse({
+          courseId: "1",
+          activitytype: "2",
+      }),
+          new idpcourse({
+              courseId: "2",
+              activitytype: "2",
+          }),
+          new idpcourse({
+              courseId: "2",
+              activitytype: "3",
+          })];
     var plan = {
+        legend: _legend,
         planDetail: _planDetail,
         planFooter: _planFooter
     };

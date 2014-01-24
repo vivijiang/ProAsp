@@ -1,12 +1,37 @@
-﻿[class^="idp-act-"],
-[class*=" idp-act-"] {
+﻿
+.idp img {
+    max-width: 469px;
+    display: none;
+}
+
+.idp [class^="act-"],
+.idp [class*="act-"] {
     width: 14px;
     height: 14px;
     overflow: hidden;
     position: relative;
 }
-.idp-act-1-1 {
+.idp [class^="act-"] img,
+.idp [class*="act-"] img {
+    display: inline-block;
     position: absolute;
+}
+.act-1-1 img {
     top: 0;
-    left: 100px;
+    left: 0;
+}
+
+.act-1-2  img {
+    top: 0;
+    left: -25px;
+}
+
+.act-2-2 img {
+    top: -25px;
+    left: 0;
+}
+
+.act-2-3 img {
+    top: -25px;
+    left: -25px;
 }

@@ -6,7 +6,7 @@
         self.activitytype = ko.observable(data.activitytype);
         self.description = ko.observable(data.description || "");
         self.idpcss = ko.computed(function () {
-            return (!!self.courseId && !!self.activitytype()) ? 'idp-act-' + self.courseId  + '-' + self.activitytype() : '';
+            return (!!self.courseId && !!self.activitytype()) ? 'act-' + self.courseId + '-' + self.activitytype() : '';
         });
     };
 }
