@@ -10,22 +10,27 @@
     <div class="span12 idp" id="idpko">
         <table class="table table-bordered table-striped idp-detail">
             <thead>
-                <tr>
-                    <th>Core Course</th>
-                    <th colspan="5">TB 5</th>
-                    <th colspan="5">TB 6</th>
-                    <th colspan="2"></th>
+                <tr data-bind="with: planHead">
+                    <th data-bind="text: colName"></th>
+                    <!-- ko foreach: courses -->
+                    <th data-bind="attr: { colspan: monthSpan }, text: courseName"></th>
+                    <!-- /ko -->
                 </tr>
             </thead>
             <tbody data-bind="foreach: planDetail">
 
                 <tr>
-                    <td data-bind="text: coursesCol.courseName"></td>
+                    <td class="row-head" data-bind="text: coursesCol.courseName"></td>
                     <!-- ko foreach: courses -->
-                    <td>
+                    <td class="hover-highlight">
                         <div class="stamp" data-bind="css: idpcss, click: $root.clickCell">
                             <img src="/Content/img/idp.png" />
                         </div>
+                        <!-- ko if: activitytype -->
+                        <div class="idp-widget" data-bind="visible: showWidget(), event: { focusout: $root.onWidgetBlur }">
+                           <textarea></textarea>
+                        </div>
+                        <!-- /ko -->
                     </td>
                     <!-- /ko -->
                 </tr>
@@ -34,7 +39,7 @@
                 <tr>
                     <td></td>
                     <!-- ko foreach: planFooter -->
-                    <td><span data-bind="text: monthText"></span></td>
+                    <td><span data-bind="text: DateString"></span></td>
                     <!-- /ko -->
                 </tr>
             </tfoot>

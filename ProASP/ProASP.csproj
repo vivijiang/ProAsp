@@ -128,10 +128,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\css\idp.css" />
-    <Content Include="Content\img_idp\check.png" />
-    <Content Include="Content\img_idp\free_for_job.png" />
-    <Content Include="Content\img_idp\star.png" />
-    <Content Include="Content\img_idp\world.png" />
+    <Content Include="Content\img\idp.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\corecourse.js" />
     <Content Include="Scripts\App\idp.js" />
@@ -183,9 +180,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>3188</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:44301/</IISUrl>
+          <IISUrl>http://localhost:44309/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
