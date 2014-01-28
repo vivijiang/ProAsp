@@ -4,16 +4,18 @@
 
 .idp-widget {
     border: 1px solid#0088cc;
-    background-color: #E8F4FF;
+    background-color: #FFF;
     position: absolute;
     width: 220px;
-    height: 100px;
+    min-height: 100px;
     padding: 5px;
     z-index: 2;
     right: -190px;
     top: 0;
 }
+
 .stamp {
+    cursor: pointer;
     display: inline-block;
     width: 44px;
     height: 44px;
@@ -32,9 +34,14 @@
 .idp-detail .hover-highlight {
     position: relative;
 }
-.idp-detail .hover-highlight:hover {
-    background-color: #0088cc;
-}
+
+    .idp-detail .hover-highlight:hover {
+        background-color: #0088cc;
+    }
+
+        .idp-detail .hover-highlight:hover .act-add:after {
+            content: "click to add";
+        }
 
 .idp-detail tbody td {
     text-align: center;
@@ -50,22 +57,43 @@
     top: 0;
 }
 
+.act-add img {
+    right: 100px;
+}
+
 .act-1-1 img {
     left: 0;
 }
 
-.act-2-2 img {
+.act-2-1 img {
     left: -130px;
 }
 
+.act-2-2 img {
+    left: -195px;
+}
 .act-2-3 img {
     left: -195px;
 }
 
+.act-2-4 img {
+    left: -65px;
+}
+.act-2-5 img {
+    left: -195px;
+}
+
+.act-2-6 img {
+    left: -65px;
+}
 .act-3-1 img {
     left: -195px;
 }
 
 .act-3-2 img {
     left: -65px;
+}
+
+.act-unconfirmed img{
+    left: -289px;
 }

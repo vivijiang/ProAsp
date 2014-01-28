@@ -27,8 +27,15 @@
                             <img src="/Content/img/idp.png" />
                         </div>
                         <!-- ko if: activitytype -->
-                        <div class="idp-widget" data-bind="visible: showWidget(), event: { focusout: $root.onWidgetBlur }">
-                           <textarea></textarea>
+                        <div class="idp-widget" tabindex='-1' data-bind="visible: showWidget(), event: { focusout: $root.onWidgetBlur }">
+                            <!-- ko if: activitytypeArray().length>1 -->
+                            <ul class="nav nav-pills nav-stacked" data-bind="foreach: activitytypeArray">
+                                <li data-bind="css: { active: activityId == $parent.activitytype()}">
+                                    <a href="#" data-bind="text: activityName, click: $parent.clickActivity"></a>
+                                </li>
+                            </ul>
+                             <!-- /ko -->
+                            <textarea></textarea>
                         </div>
                         <!-- /ko -->
                     </td>

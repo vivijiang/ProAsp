@@ -6,12 +6,26 @@
         self.activitytype = ko.observable(data.activitytype);
         self.description = ko.observable(data.description || "");
         self.idpcss = ko.computed(function () {
-            return (!!self.courseId && !!self.activitytype()) ? 'act-' + self.courseId + '-' + self.activitytype() : '';
+            var activitytype = self.activitytype();
+            var courseId = self.courseId;
+            var css = 'act-add';
+
+            if (activitytype == 'unconfirmed') {
+                css = 'act-unconfirmed';
+            }
+            else if (!!courseId && !!activitytype) {
+                css = 'act-' + self.courseId + '-' + self.activitytype();
+            }
+            return css;
         });
 
-        self.activitytypeArray = ko.observableArray(["1"]);
+        self.activitytypeArray = ko.observableArray(data.activitytypeArray);
         self.showWidget = ko.observable(false);
         self.isSaving = ko.observable(false);
+        
+        self.clickActivity = function (data) {
+            self.activitytype(data.activityId);
+        };
     };
 }
   )

@@ -1,7 +1,7 @@
-﻿define(["./corecourse", "./idpcourse", "knockout-2.3.0"], function (corecourse, idpcourse, ko) {
+﻿define(["./corecourse", "./idpcourse", "knockout-2.3.0", "jquery"], function (corecourse, idpcourse, ko, $) {
     console.log("idp->" + corecourse);
 
-    function _getIdpCourseViewModel(timestamps, _idpCourses1, courseId) {
+    function _getIdpCourseViewModel(timestamps, _idpCourses1, courseId, activityArray) {
         var idpCourse1View = [];
         var index = timestamps.length;
         var len = index;
@@ -14,7 +14,8 @@
             } else {
                 idpCourse1View.push(new idpcourse({
                     monthId: currenttimestamp.MonthId,
-                    courseId: courseId
+                    courseId: courseId,
+                    activitytypeArray: activityArray
                 }));
             }
         }
@@ -49,19 +50,17 @@
     var _tableHead = {
         colName: "Core Course",
         courses: [{
-            courseName: "NTB book5",//ntb book5 -- NTBb1.1.1
+            courseName: "NTB book5", //ntb book5 -- NTBb1.1.1
             courseId: "ntb_5",
             startMonthId: 9,
             monthSpan: 4
-        },
-        {
-            courseName: "NTB book6",//ntb book5 -- NTBb1.1.1
+        }, {
+            courseName: "NTB book6", //ntb book5 -- NTBb1.1.1
             courseId: "ntb_6",
             startMonthId: 1,
             monthSpan: 6
-        },
-        {
-            courseName: "",//exams
+        }, {
+            courseName: "", //exams
             courseId: null,
             startMonthId: 7,
             monthSpan: 2
@@ -70,12 +69,17 @@
     };
 
 
+    var activityArray1 = [{
+        activityName: "Life Club",
+        activityId: "1"
+    }];
     var _idpCourses1 = [
         new idpcourse({
             date: new PlanDate(new Date("2013/9")),
             courseId: "1",
             activitytype: "1",
             description: 'blabla',
+            activitytypeArray: activityArray1
 
         }),
         new idpcourse({
@@ -83,48 +87,80 @@
             courseId: "1",
             activitytype: "1",
             description: 'test description',
+            activitytypeArray: activityArray1
+
         })
 
     ];
 
-    var _idpCourse1View = _getIdpCourseViewModel(timestamps, _idpCourses1, 1);
+    var _idpCourse1View = _getIdpCourseViewModel(timestamps, _idpCourses1, 1, activityArray1);
 
+    var activityArray2 = [{
+        activityName: "Phone update",
+        activityId: "1"
+    }, {
+        activityName: "Progress Update",
+        activityId: "2"
+    }, {
+        activityName: "Phone update",
+        activityId: "3"
+    }, {
+        activityName: "Email update",
+        activityId: "4"
+    }, {
+        activityName: "Open Doors",
+        activityId: "5"
+    }, {
+        activityName: "Achievement Ceremony",
+        activityId: "6"
+    }];
 
     var _idpCourses2 = [
-    new idpcourse({
-        date: new PlanDate(new Date("2013/10")),
-        courseId: "2",
-        activitytype: "2",
-        description: 'blablabla'
-    }),
-    new idpcourse({
-        date: new PlanDate(new Date("2014/02")),
-        courseId: "2",
-        activitytype: "3",
-        description: 'test'
-    })
+        new idpcourse({
+            date: new PlanDate(new Date("2013/10")),
+            courseId: "2",
+            activitytype: "2",
+            description: 'blablabla',
+            activitytypeArray: activityArray2
+        }),
+        new idpcourse({
+            date: new PlanDate(new Date("2014/02")),
+            courseId: "2",
+            activitytype: "1",
+            description: 'test',
+            activitytypeArray: activityArray2
+
+        })
 
     ];
 
 
-    var _idpCourses2View = _getIdpCourseViewModel(timestamps, _idpCourses2, 2);
+    var _idpCourses2View = _getIdpCourseViewModel(timestamps, _idpCourses2, 2, activityArray2);
 
+    var activityArray3 = [{
+        activityName: "Life Club",
+        activityId: "1"
+    }];
     var _idpCourses3 = [
-new idpcourse({
-    date: new PlanDate(new Date("2013/11")),
-    courseId: "3",
-    activitytype: "1",
-    description: 'blablabla'
-}),
-new idpcourse({
-    date: new PlanDate(new Date("2014/04")),
-    courseId: "3",
-    activitytype: "2",
-    description: 'test'
-})
+        new idpcourse({
+            date: new PlanDate(new Date("2013/11")),
+            courseId: "3",
+            activitytype: "1",
+            description: 'blablabla',
+            activitytypeArray: activityArray3
+
+        }),
+        new idpcourse({
+            date: new PlanDate(new Date("2014/04")),
+            courseId: "3",
+            activitytype: "2",
+            description: 'test',
+            activitytypeArray: activityArray3
+
+        })
     ];
 
-    var _idpCourses3View = _getIdpCourseViewModel(timestamps, _idpCourses3, 3);
+    var _idpCourses3View = _getIdpCourseViewModel(timestamps, _idpCourses3, 3, activityArray3);
 
 
     var _planDetail = ko.observableArray(
@@ -132,60 +168,74 @@ new idpcourse({
             coursesCol: new corecourse({
                 courseName: 'Life Club',
                 courseId: "1"
+
             }),
-            courses: ko.observableArray(_idpCourse1View)
-        },
-            {
-                coursesCol: new corecourse({
-                    courseName: 'Exam',
-                    courseId: "2"
-                }),
-                courses: ko.observableArray(_idpCourses2View)
-            },
-            {
-                coursesCol: new corecourse({
-                    courseName: 'None-CoreCourses',
-                    courseId: "3"
-                }),
-                courses: ko.observableArray(_idpCourses3View)
-            }]);
+            courses: ko.observableArray(_idpCourse1View),
+
+        }, {
+            coursesCol: new corecourse({
+                courseName: 'Exam',
+                courseId: "2"
+            }),
+            courses: ko.observableArray(_idpCourses2View)
+        }, {
+            coursesCol: new corecourse({
+                courseName: 'None-CoreCourses',
+                courseId: "3"
+            }),
+            courses: ko.observableArray(_idpCourses3View)
+        }]);
     var _planFooter = ko.observableArray(timestamps);
+
+
+    var $blur, $click;
+
+    $(document).mousedown(function(e) {
+        $click = $(e.target);
+    });
+    $(document).mouseup(function (e) {
+        $click = null;
+    });
+    $(document).click(function (e) {
+        $blur = null;
+    });
 
     function idp(parameters) {
         var self = this;
-        self.disableClickCell = ko.observable(false);
         self.planHead = _tableHead;
         self.planDetail = _planDetail;
         self.planFooter = _planFooter;
-        self.clickCell = function (data, e) {
-            if (self.disableClickCell()) {
+        self.clickCell = function(data, e) {
+            // prevent click cell if it's triggered by blur widget
+            if ($blur && ($blur.attr('class') == 'idp-widget' || $blur.parents(".idp-widget").length)) {
                 return false;
-            }
-            else {
+            } else {
                 var $this = $(e.target);
                 console.log('click cell');
                 var activitytypes = data.activitytypeArray();
                 if (activitytypes.length == 1) {
-                    data.activitytype(activitytypes[0]);
+                    data.activitytype(activitytypes[0].activityId);
+                } else {
+                    data.activitytype('unconfirmed');
                 }
                 data.showWidget(true);
                 console.log($this.parents("td").find("textarea").length);
-                $this.parents("td").find("textarea").focus();
+                $this.parents("td").find(".idp-widget").focus();
             }
-        },
-            self.onWidgetBlur = function (data, e) {
-                //var $this = $(e.target);
-                console.log('focusout');
-                data.showWidget(false);
-                data.isSaving(true);
-                self.disableClickCell(true);
-                console.log('close');
-                //simulate saving
-                setTimeout(function() {
-                    self.disableClickCell(false);
-                }, 500);
-
-            };
+        };
+        self.onWidgetBlur = function (data, e) {
+            console.log('focusout');
+            //prevent blur handler if it's triggered by elements in widget.
+            if ($click && ($click.attr('class') == 'idp-widget' || $click.parents(".idp-widget").length)) {
+                return false;
+            }
+            $blur = $(e.target);
+            if (data.activitytype() == 'unconfirmed') {
+                data.activitytype(undefined);
+            }
+            data.showWidget(false);
+            data.isSaving(true);
+        };
     }
     return idp;
 
