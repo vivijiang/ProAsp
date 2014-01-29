@@ -21,16 +21,12 @@
     display: inline-block;
     width: 44px;
     height: 44px;
-    overflow: hidden;
+    position: relative;
 }
 
 
 .row-head {
     text-align: left;
-}
-
-.idp-detail .hover-highlight {
-    position: relative;
 }
 
     .idp-detail .hover-highlight:hover {
