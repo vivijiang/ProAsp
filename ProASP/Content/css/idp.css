@@ -20,12 +20,8 @@
     width: 44px;
     height: 44px;
     overflow: hidden;
-    position: relative;
 }
 
-    .stamp img {
-        position: absolute;
-    }
 
 .row-head {
     text-align: left;
@@ -47,17 +43,16 @@
     text-align: center;
 }
 
-.idp-detail .stamp img {
-    display: none;
-}
-
-.idp-detail [class^="act-"] img,
-.idp-detail [class*=" act-"] img {
+.idp-detail [class^="act-"],
+.idp-detail [class*=" act-"] {
     display: inline-block;
-    top: 0;
+    /*top: 0;*/
 }
 
 .act-add img {
+    display: none;
+}
+/*.act-add img {
     right: 100px;
 }
 
@@ -96,4 +91,7 @@
 
 .act-unconfirmed img{
     left: -289px;
+}*/
+
+@media print {
 }

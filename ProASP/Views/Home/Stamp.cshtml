@@ -23,8 +23,8 @@
                     <td class="row-head" data-bind="text: coursesCol.courseName"></td>
                     <!-- ko foreach: courses -->
                     <td class="hover-highlight">
-                        <div class="stamp" data-bind="css: idpcss, click: $root.clickCell">
-                            <img src="/Content/img/idp.png" />
+                        <div class="stamp" data-bind="click: $root.clickCell, css: idpcss()">
+                            <img src="/Content/img/idp.png" data-bind="attr: { src: '/Content/img/' + idpcss() + '.png' }" />
                         </div>
                         <!-- ko if: activitytype -->
                         <div class="idp-widget" tabindex='-1' data-bind="visible: showWidget(), event: { focusout: $root.onWidgetBlur }">

@@ -58,7 +58,12 @@
             courseName: "NTB book6", //ntb book5 -- NTBb1.1.1
             courseId: "ntb_6",
             startMonthId: 1,
-            monthSpan: 6
+            monthSpan: 5
+        }, {
+            courseName: "NTB book7", //ntb book7 -- NTBb1.1.1
+            courseId: "ntb_6",
+            startMonthId: 6,
+            monthSpan: 1
         }, {
             courseName: "", //exams
             courseId: null,
