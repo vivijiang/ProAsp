@@ -195,7 +195,7 @@
 
     var $blur, $click;
 
-    $(document).mousedown(function(e) {
+    $(document).mousedown(function (e) {
         $click = $(e.target);
     });
     $(document).mouseup(function (e) {
@@ -210,18 +210,20 @@
         self.planHead = _tableHead;
         self.planDetail = _planDetail;
         self.planFooter = _planFooter;
-        self.clickCell = function(data, e) {
+        self.clickCell = function (data, e) {
             // prevent click cell if it's triggered by blur widget
             if ($blur && ($blur.attr('class') == 'idp-widget' || $blur.parents(".idp-widget").length)) {
                 return false;
             } else {
                 var $this = $(e.target);
                 console.log('click cell');
-                var activitytypes = data.activitytypeArray();
-                if (activitytypes.length == 1) {
-                    data.activitytype(activitytypes[0].activityId);
-                } else {
-                    data.activitytype('unconfirmed');
+                if (!data.activitytype()) {
+                    var activitytypes = data.activitytypeArray();
+                    if (activitytypes.length == 1) {
+                        data.activitytype(activitytypes[0].activityId);
+                    } else {
+                        data.activitytype('unconfirmed');
+                    }
                 }
                 data.showWidget(true);
                 console.log($this.parents("td").find("textarea").length);

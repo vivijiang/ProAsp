@@ -10,10 +10,12 @@
     min-height: 100px;
     padding: 5px;
     z-index: 2;
-    right: -190px;
+    left: 44px;
     top: 0;
 }
-
+.idp-widget li {
+    text-align: left;
+}
 .stamp {
     cursor: pointer;
     display: inline-block;
