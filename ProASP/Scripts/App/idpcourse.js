@@ -26,6 +26,10 @@
         self.clickActivity = function (data) {
             self.activitytype(data.activityId);
         };
+        
+        self.deleteActivity = function (data) {
+            data.activitytype(null);
+        };
     };
 }
   )

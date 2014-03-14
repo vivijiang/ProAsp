@@ -199,7 +199,10 @@
         $click = $(e.target);
     });
     $(document).mouseup(function (e) {
-        $click = null;
+        var $this = $(e.target);
+        if (!($this.attr('class') == 'idp-widget' || $this.parents(".idp-widget").length)) {
+            $click = null;
+        }
     });
     $(document).click(function (e) {
         $blur = null;
@@ -227,11 +230,11 @@
                 }
                 data.showWidget(true);
                 console.log($this.parents("td").find("textarea").length);
-                $this.parents("td").find(".idp-widget").focus();
+                $this.parents("td").find(".idp-widget textarea").focus();
             }
         };
         self.onWidgetBlur = function (data, e) {
-            console.log('focusout');
+            console.log('focusout' + $click);
             //prevent blur handler if it's triggered by elements in widget.
             if ($click && ($click.attr('class') == 'idp-widget' || $click.parents(".idp-widget").length)) {
                 return false;
@@ -243,6 +246,8 @@
             data.showWidget(false);
             data.isSaving(true);
         };
+
+
     }
     return idp;
 
